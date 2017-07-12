@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BirthdayGift</string>
+    <string name="app_name">送给XX的生日礼物</string>
 
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -14,9 +14,24 @@
 
     <string name="message_launcher">嘿！我亲爱的妹妹，生日快乐啊！你哥哥我精心为你准备了一份礼物哦！想要吗？</string>
     <string name="showMessage">有惊喜！</string>
+    <string name="showAllMessage">点击显示全部</string>
     <string name="showMessageAboveText">点击下方按钮有惊喜━(ﾟ∀ﾟ)━!</string>
     <string name="galleryText">可以左右滑动，不过好像有点问题的....</string>
-    <string name="myMessage">(＾▽＾)ｺ祝贺你as3f54d，sa65f646e6w98asdas！a744rt84896e。6w959a6f635da3s645156</string>
+
+    <string name="myMessage">TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+        TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+    </string>
+
     <string name="refuseText">就很伤心，礼物写了这么久，居然拒收(#‵′)凸，再见！ </string>
     <string name="AlbumText">相片说明</string>
 

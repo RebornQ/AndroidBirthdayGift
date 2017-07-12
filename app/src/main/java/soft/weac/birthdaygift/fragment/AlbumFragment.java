@@ -100,8 +100,8 @@ public class AlbumFragment extends Fragment {
                     timer.cancel();
                     timer.purge();
                     timer = null;
-                    task = null;//清空Task
                     task.cancel();
+                    task = null;//清空Task
                 }
             }
         };
@@ -165,8 +165,8 @@ public class AlbumFragment extends Fragment {
                 timer.cancel();
                 timer.purge();
                 timer = null;
-                task = null;//清空Task
                 task.cancel();
+                task = null;//清空Task
             }
         }
 
@@ -262,7 +262,7 @@ public class AlbumFragment extends Fragment {
     /**
      * 定时器，实现自动播放
      */
-    class MyTimerTask extends TimerTask {
+    private class MyTimerTask extends TimerTask {
 
         private Handler handler = new Handler() {
             @Override

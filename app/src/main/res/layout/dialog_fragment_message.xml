@@ -6,11 +6,18 @@
     android:background="@mipmap/white_paper"
     android:id="@+id/messageDialog">
 
-    <soft.weac.birthdaygift.view.SinglyTextView
+    <ScrollView
         android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/myMessage"
-        android:textColor="#9b2e2e"/>
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView_myMessage">
+
+        <soft.weac.birthdaygift.view.SinglyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/myMessage"
+            android:textColor="#9b2e2e" />
+
+    </ScrollView>
     <!--android:background="#acffffff"-->
 
 </LinearLayout>
