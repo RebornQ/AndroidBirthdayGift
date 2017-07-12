@@ -6,6 +6,7 @@ import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -65,8 +66,12 @@ public class RefuseGiftActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                new CountdownDialog()
-                        .show(fragmentManager, "Countdown");
+                try {
+                    new CountdownDialog()
+                            .show(fragmentManager, "Countdown");
+                } catch (IllegalStateException e) {
+                    Log.e("IllegalStateException", e.getLocalizedMessage());
+                }
             }
         };
         timer.start();

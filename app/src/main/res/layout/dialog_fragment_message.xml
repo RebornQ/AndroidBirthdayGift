@@ -8,16 +8,52 @@
 
     <ScrollView
         android:layout_width="280dp"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView_myMessage">
+        android:layout_height="0dp"
+        android:id="@+id/scrollView_myMessage"
+        android:layout_weight="1">
 
         <soft.weac.birthdaygift.view.SinglyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/myMessage"
-            android:textColor="#9b2e2e" />
+            android:textColor="#9b2e2e"
+            android:textSize="12sp"/>
 
     </ScrollView>
     <!--android:background="#acffffff"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/linear1">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="@string/showAllMessage"
+            android:id="@+id/bt_showAllMessage"
+            android:background="@drawable/message_button_click"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            android:textSize="12sp"/>
+
+        <!--<TextView-->
+            <!--android:layout_width="5dp"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="@string/close"
+            android:id="@+id/bt_close"
+            android:background="@drawable/message_button_click"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

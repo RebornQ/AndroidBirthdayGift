@@ -110,6 +110,14 @@ public class SinglyTextView extends android.support.v7.widget.AppCompatTextView 
         }.start();
     }
 
+    /**
+     * 设置当前已读取的文本长度
+     * @param index
+     */
+    public void setmIndex(int index) {
+        this.mIndex = index;
+    }
+
     @Override
     public boolean getIsMAXIndex() {
         return MessageDialog.isMAXIndex;

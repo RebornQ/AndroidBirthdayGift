@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -65,7 +66,7 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
 
         final View mLinearLayout = view.findViewById(R.id.messageDialog);
         mLinearLayout.setVisibility(View.VISIBLE);
-        SinglyTextView singlyTextView = (SinglyTextView) view.findViewById(R.id.myMessage);
+        final SinglyTextView singlyTextView = (SinglyTextView) view.findViewById(R.id.myMessage);
         scrollView_myMessage = (ScrollView) view.findViewById(R.id.scrollView_myMessage);
 //        singlyTextView.setText(getContext().getResources().getText(R.string.myMessage));
         ((CakeActivity)getActivity()).getmTextView(singlyTextView);
@@ -80,9 +81,35 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
 
         LinearLayout.LayoutParams params_1 = (LinearLayout.LayoutParams) scrollView_myMessage.getLayoutParams();
         params_1.width= (int) (dm.widthPixels * 0.85 * 0.7);//设置当前控件布局的宽度
-        params_1.height = (int) (dm.heightPixels * 0.7 * 0.6);//设置当前控件布局的高度
-//        params_1.topMargin = (int) (dm.heightPixels * 0.7 * 0.2);
+//        params_1.height = (int) (dm.heightPixels * 0.7 * 0.6);//设置当前控件布局的高度
+        params_1.topMargin = (int) (dm.heightPixels * 0.7 * 0.15);
+//        params_1.bottomMargin = (int) (dm.heightPixels * 0.7 * 0.15);
         scrollView_myMessage.setLayoutParams(params_1);//将设置好的布局参数应用到控件中
+
+        LinearLayout linearLayout1 = (LinearLayout) view.findViewById(R.id.linear1);
+
+        ViewGroup.LayoutParams lp;
+        lp= linearLayout1.getLayoutParams();
+        lp.width=(int) (dm.widthPixels * 0.85 * 0.7);
+        lp.height=LinearLayout.LayoutParams.WRAP_CONTENT;
+        linearLayout1.setLayoutParams(lp);
+
+        Button bt_showAllMessage = (Button) view.findViewById(R.id.bt_showAllMessage);
+        bt_showAllMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                singlyTextView.setmIndex(mOriginalStrTemp.length());
+                singlyTextView.setText(mOriginalStrTemp);
+            }
+        });
+
+        Button bt_close = (Button) view.findViewById(R.id.bt_close);
+        bt_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
 
         scrollView_myMessage.setOnTouchListener(new View.OnTouchListener() {
             @Override

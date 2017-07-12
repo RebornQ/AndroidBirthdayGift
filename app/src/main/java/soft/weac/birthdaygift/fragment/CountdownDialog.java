@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.DialogFragment;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import soft.weac.birthdaygift.R;
 
@@ -63,10 +66,41 @@ public class CountdownDialog extends DialogFragment {
                 Intent intent_exit = new Intent(Intent.ACTION_MAIN);
                 intent_exit.addCategory(Intent.CATEGORY_HOME);
                 intent_exit.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent_exit);
+                try {
+                    startActivity(intent_exit);
+                } catch (IllegalStateException e) {
+                    Log.e("IllegalException", e.getLocalizedMessage());
+                }
                 android.os.Process.killProcess(android.os.Process.myPid());
             }
         };
         timer.start();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getFocus();
+    }
+
+    private void getFocus() {
+        getView().setFocusable(true);
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {
+                    // 监听到返回按钮点击事件
+
+                    dismiss();
+                    Toast.makeText(getContext(), "没用的，你按返回还是会退出程序的~", Toast.LENGTH_SHORT).show();
+                    return true;// 未处理
+                }
+                //这里注意当不是返回键时需将事件扩散，否则无法处理其他点击事件
+                return false;
+            }
+        });
     }
 }
