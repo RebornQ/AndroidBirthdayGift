@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@mipmap/birth_car"
+    android:id="@+id/messageFragment">
+
+    <soft.weac.birthdaygift.view.MarqueeTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/messageAbove"
+        android:textColor="#9b2e2e"
+        android:background="#acffffff"
+        android:text="@string/showMessageAboveText"
+        android:layout_marginBottom="5dp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:marqueeRepeatLimit="marquee_forever"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/showMessage"
+        android:id="@+id/bt_showMessage"
+        android:background="@drawable/message_button_click"/>
+
+</LinearLayout>

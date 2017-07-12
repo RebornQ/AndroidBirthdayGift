@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">BirthdayGift</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="title_cakes">Cake</string>
+    <string name="title_albums">Album</string>
+    <string name="title_messages">Message</string>
+
+    <string name="yes">点击领取礼物</string>
+    <string name="no">我拒绝</string>
+
+    <string name="message_launcher">嘿！我亲爱的妹妹，生日快乐啊！你哥哥我精心为你准备了一份礼物哦！想要吗？</string>
+    <string name="showMessage">有惊喜！</string>
+    <string name="showMessageAboveText">点击下方按钮有惊喜━(ﾟ∀ﾟ)━!</string>
+    <string name="galleryText">可以左右滑动，不过好像有点问题的....</string>
+    <string name="myMessage">(＾▽＾)ｺ祝贺你as3f54d，sa65f646e6w98asdas！a744rt84896e。6w959a6f635da3s645156</string>
+    <string name="refuseText">就很伤心，礼物写了这么久，居然拒收(#‵′)凸，再见！ </string>
+    <string name="AlbumText">相片说明</string>
+
+    <string name="navigation_launcher1">launcher1</string>
+    <string name="navigation_launcher2">launcher2</string>
+    <string name="navigation_launcher3">launcher3</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_second_fragment">点击礼物盒收取礼物！</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_third_fragment">Hello Third fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

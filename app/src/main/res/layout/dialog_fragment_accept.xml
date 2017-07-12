@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="soft.weac.birthdaygift.fragment.AcceptGiftDialog"
+    android:id="@+id/dialog_surprise"
+    android:orientation="vertical"
+    android:background="@mipmap/cake_background"
+    android:gravity="center">
+
+    <!-- TODO: Update blank soft.weac.birthdaygift.fragment layout -->
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/hello_second_fragment"
+    android:id="@+id/tx2" />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:id="@+id/bt_gift"
+        android:clickable="true"
+        android:src="@drawable/gift_click" />
+
+</LinearLayout>

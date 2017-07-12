@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <item android:drawable="@drawable/giftbox1" android:duration="0"/>
+    <item android:drawable="@drawable/giftbox2" android:duration="0"/>
+    <item android:drawable="@drawable/giftbox3" android:duration="0"/>
+    <item android:drawable="@drawable/giftbox4" android:duration="0"/>
+    <item android:drawable="@drawable/giftbox5" android:duration="0"/>
+    <item android:drawable="@drawable/giftbox6" android:duration="0"/>
+    <item android:drawable="@drawable/giftbox7" android:duration="0"/>
+    <item android:drawable="@drawable/giftbox8" android:duration="0"/>
+    <item android:drawable="@drawable/giftbox9" android:duration="0"/>
+    <item android:drawable="@drawable/giftbox10" android:duration="0"/>
+</animation-list>

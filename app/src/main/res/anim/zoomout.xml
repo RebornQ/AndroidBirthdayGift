@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator"
+    android:zAdjustment="top">
+    <scale android:fromXScale="0.0" android:toXScale="1.0"
+        android:fromYScale="0.0" android:toYScale="1.0"
+        android:pivotX="50%p" android:pivotY="50%p"
+        android:duration="300" />
+    <!--原始为1.0 .5-->
+    <!-- 系统内置的动画持续时间
+    android:duration="@android:integer/config_mediumAnimTime"
+    -->
+    <alpha android:fromAlpha="1.0" android:toAlpha="0"
+        android:duration="300"/>
+
+    <!--fromXScale,fromYScale，         动画开始前X,Y的缩放，0.0为不显示，  1.0为正常大小
+    toXScale，toYScale，	        动画最终缩放的倍数， 1.0为正常大小，大于1.0放大
+    pivotX，  pivotY	    	动画起始位置，相对于屏幕的百分比,两个都为50%表示动画从屏幕中间开始-->
+    <!--
+    fromAlpha:开始时透明度
+    toAlpha： 结束时透明度
+    duration：动画持续时间 -->
+
+</set>

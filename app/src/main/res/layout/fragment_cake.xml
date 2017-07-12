@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="soft.weac.birthdaygift.fragment.CakeFragment"
+    android:id="@+id/cakeFragment"
+    android:background="#2a0002"
+    >
+
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@mipmap/_birthday_card"/>-->
+
+    <ImageView
+        android:layout_width="260dp"
+        android:layout_height="347dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/mySister"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/birthday_card" />
+
+
+</RelativeLayout>

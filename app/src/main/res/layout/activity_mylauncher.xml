@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/cake_background_2"
+    android:id="@+id/fragment_launcher_1">
+
+    <TextView
+        android:id="@+id/message_launcher_1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/message_launcher"
+        android:textColor="#9b2e2e"
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:background="#acffffff"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="bottom">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/bt_yes"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/take_gift_button_click"
+                android:text="@string/yes"
+                android:layout_gravity="start|center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/bt_no"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/take_gift_button_click"
+                android:text="@string/no"
+                android:layout_gravity="end|center_vertical"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
