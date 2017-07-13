@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import soft.weac.birthdaygift.CakeActivity;
 import soft.weac.birthdaygift.R;
@@ -21,6 +22,8 @@ public class SinglyTextView extends android.support.v7.widget.AppCompatTextView 
     private int     mIndex    = 0;//-----记录将要显示的字符的位置
     private Handler mHandler;
     private final int SHOW_NEXT_CHAR = 1;
+
+    private TextIndexListener textIndexListener;
 
     public SinglyTextView(Context context){
         super(context);
@@ -61,6 +64,11 @@ public class SinglyTextView extends android.support.v7.widget.AppCompatTextView 
                             SinglyTextView.this.setText(SinglyTextView.this.getText().toString()
                                     + mOriginalStr.charAt(mIndex));
                             mIndex++;
+                            try {
+                                textIndexListener.getIsMAXIndex();
+                            } catch (Exception e) {
+                                Log.i("Exception:", e.getLocalizedMessage());
+                            }
                         } else {
                             mIndex = mOriginalStr.length();
                         }
@@ -116,6 +124,10 @@ public class SinglyTextView extends android.support.v7.widget.AppCompatTextView 
      */
     public void setmIndex(int index) {
         this.mIndex = index;
+    }
+
+    public void setIndexListener(TextIndexListener textIndexListener) {
+        this.textIndexListener = textIndexListener;
     }
 
     @Override

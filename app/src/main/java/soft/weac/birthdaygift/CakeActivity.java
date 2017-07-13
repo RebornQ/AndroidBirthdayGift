@@ -32,7 +32,6 @@ import soft.weac.birthdaygift.activity.ActivityManagerApplication;
 import soft.weac.birthdaygift.fragment.AlbumFragment;
 import soft.weac.birthdaygift.fragment.CakeFragment;
 import soft.weac.birthdaygift.fragment.MessageFragment;
-import soft.weac.birthdaygift.presenter.TextViewPresenter;
 import soft.weac.birthdaygift.service.AudioService;
 import soft.weac.birthdaygift.view.SinglyTextView;
 
@@ -48,7 +47,7 @@ public class CakeActivity extends AppCompatActivity{
     public static boolean isAnim = true;
     public static int pagerPosition = 3;
 
-    SinglyTextView singlyTextView = null;
+//    SinglyTextView singlyTextView = null;
 //    Context context = null;
 
     Handler handler;
@@ -139,11 +138,11 @@ public class CakeActivity extends AppCompatActivity{
                 navigation.getMenu().getItem(position).setChecked(true);
                 pagerPosition = position;
 //                Log.i("PagerPosition", "" + pagerPosition);
-                if (position == 0) {
-                    if (singlyTextView != null) {
-                        new TextViewPresenter(singlyTextView);
-                    }
-                }
+//                if (position == 0) {
+//                    if (singlyTextView != null) {
+//                        new TextViewPresenter(singlyTextView);
+//                    }
+//                }
             }
 
             @Override
@@ -205,9 +204,9 @@ public class CakeActivity extends AppCompatActivity{
         singlyTextView.start();
     }
 
-    public void getmTextView(SinglyTextView singlyTextView) {
-        this.singlyTextView = singlyTextView;
-    }
+//    public void getmTextView(SinglyTextView singlyTextView) {
+//        this.singlyTextView = singlyTextView;
+//    }
 
     @Override
     protected void onDestroy() {

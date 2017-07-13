@@ -2,11 +2,8 @@ package soft.weac.birthdaygift.fragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.DialogFragment;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,10 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-import soft.weac.birthdaygift.CakeActivity;
 import soft.weac.birthdaygift.R;
 import soft.weac.birthdaygift.view.SinglyTextView;
 import soft.weac.birthdaygift.view.TextIndexListener;
@@ -36,10 +29,10 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
     public static boolean isMAXIndex = false;
     public static String  mOriginalStrTemp;
 
-    private boolean isFirstRun = true;
-
-    Timer timer = null;
-    MyTimerTask task = null;
+//    private boolean isFirstRun = true;
+//
+//    Timer timer = null;
+//    MyTimerTask task = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,7 +62,19 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
         final SinglyTextView singlyTextView = (SinglyTextView) view.findViewById(R.id.myMessage);
         scrollView_myMessage = (ScrollView) view.findViewById(R.id.scrollView_myMessage);
 //        singlyTextView.setText(getContext().getResources().getText(R.string.myMessage));
-        ((CakeActivity)getActivity()).getmTextView(singlyTextView);
+//        ((CakeActivity)getActivity()).getmTextView(singlyTextView);
+
+        singlyTextView.setIndexListener(new TextIndexListener() {
+            @Override
+            public boolean getIsMAXIndex() {
+                scrollView_myMessage.post(new Runnable() {
+                    public void run() {
+                        scrollView_myMessage.fullScroll(ScrollView.FOCUS_DOWN);
+                    }
+                });
+                return false;
+            }
+        });
 
         DisplayMetrics dm = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -119,15 +124,18 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
                     case MotionEvent.ACTION_DOWN:
                         //按下
 //                        Log.i("ACTION_DOWN", "true");
-                        if (timer != null && task != null) {
-                            timer.cancel();
-                            timer.purge();
-                            timer = null;
-                            task.cancel();
-                            task = null;//清空Task
-                            Toast.makeText(getContext(), "已停止自动下拉，下面也许还有留言哦~不信？你可以拉下去看看", Toast.LENGTH_SHORT).show();
-//                            Log.i("ACTION_DOWN-", "true");
-                        }
+                        singlyTextView.setIndexListener(null);
+                        Toast.makeText(getContext(), "已停止自动下拉，下面也许还有留言哦~不信？你可以拉下去看看", Toast.LENGTH_SHORT).show();
+
+//                        if (timer != null && task != null) {
+//                            timer.cancel();
+//                            timer.purge();
+//                            timer = null;
+//                            task.cancel();
+//                            task = null;//清空Task
+//                            Toast.makeText(getContext(), "已停止自动下拉，下面也许还有留言哦~不信？你可以拉下去看看", Toast.LENGTH_SHORT).show();
+////                            Log.i("ACTION_DOWN-", "true");
+//                        }
                         break;
                     case MotionEvent.ACTION_UP:
                         //抬起
@@ -138,22 +146,22 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
             }
         });
 
-        if (isFirstRun) {
-            task = new MyTimerTask();
-            try {
-                timer = new Timer();
-                timer.schedule(task, 4000, 1000);//在4秒后执行此任务,每次间隔1秒执行一次,如果传递一个Data参数,就可以在某个固定的时间执行这个任务.
-                Log.i("timerIsFirstRun", "true");
-                isFirstRun = false;
-            } catch (IllegalStateException e) {
-                Log.e("IllegalStateException--", e.getMessage());
-                timer.cancel();
-                timer.purge();
-                timer = null;
-                task.cancel();
-                task = null;//清空Task
-            }
-        }
+//        if (isFirstRun) {
+//            task = new MyTimerTask();
+//            try {
+//                timer = new Timer();
+//                timer.schedule(task, 4000, 1000);//在4秒后执行此任务,每次间隔1秒执行一次,如果传递一个Data参数,就可以在某个固定的时间执行这个任务.
+//                Log.i("timerIsFirstRun", "true");
+//                isFirstRun = false;
+//            } catch (IllegalStateException e) {
+//                Log.e("IllegalStateException--", e.getMessage());
+//                timer.cancel();
+//                timer.purge();
+//                timer = null;
+//                task.cancel();
+//                task = null;//清空Task
+//            }
+//        }
 
     }
 
@@ -162,34 +170,34 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
         return isMAXIndex;
     }
 
-    /**
-     * 定时器，实现自动播放
-     */
-    private class MyTimerTask extends TimerTask {
-
-        private Handler handler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                switch (msg.what) {
-                    case 5:
-                        scrollView_myMessage.post(new Runnable() {
-                            public void run() {
-                                scrollView_myMessage.fullScroll(ScrollView.FOCUS_DOWN);
-                            }
-                        });
-                        break;
-                    default:
-                        break;
-                }
-            }
-        };
-
-        @Override
-        public void run() {
-            Message message = new Message();
-            message.what = 5;
-            handler.sendMessage(message);
-        }
-    }
+//    /**
+//     * 定时器，实现自动播放
+//     */
+//    private class MyTimerTask extends TimerTask {
+//
+//        private Handler handler = new Handler() {
+//            @Override
+//            public void handleMessage(Message msg) {
+//                super.handleMessage(msg);
+//                switch (msg.what) {
+//                    case 5:
+//                        scrollView_myMessage.post(new Runnable() {
+//                            public void run() {
+//                                scrollView_myMessage.fullScroll(ScrollView.FOCUS_DOWN);
+//                            }
+//                        });
+//                        break;
+//                    default:
+//                        break;
+//                }
+//            }
+//        };
+//
+//        @Override
+//        public void run() {
+//            Message message = new Message();
+//            message.what = 5;
+//            handler.sendMessage(message);
+//        }
+//    }
 }

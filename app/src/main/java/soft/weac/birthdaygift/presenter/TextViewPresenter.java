@@ -19,12 +19,12 @@ public class TextViewPresenter {
 //
 //    }
 
-    public TextViewPresenter(SinglyTextView singlyTextView) {
-//        Log.i("SinglyTextView---", "I am ready!!");
-//        singlyTextView.setText(context.getResources().getText(R.string.myMessage));
-        singlyTextView.init();
-        singlyTextView.start();
-    }
+//    public TextViewPresenter(SinglyTextView singlyTextView) {
+////        Log.i("SinglyTextView---", "I am ready!!");
+////        singlyTextView.setText(context.getResources().getText(R.string.myMessage));
+//        singlyTextView.init();
+//        singlyTextView.start();
+//    }
 
     public TextViewPresenter(SinglyTextView singlyTextView, TextIndexListener textIndexListener) {
         if (textIndexListener.getIsMAXIndex()) {
