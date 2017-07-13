@@ -9,17 +9,17 @@
     <string name="title_albums">Album</string>
     <string name="title_messages">Message</string>
 
-    <string name="yes">点击领取礼物</string>
+    <string name="yes">我想看</string>
     <string name="no">我拒绝</string>
     <string name="close">关闭</string>
 
-    <string name="message_launcher">嘿！我亲爱的妹妹，生日快乐啊！你哥哥我精心为你准备了一份礼物哦！想要吗？</string>
+    <string name="message_launcher">嘿！我亲爱的XX，生日快乐啊！你XX我精心为你准备了一份礼物哦！想不想看看是什么=。=？</string>
     <string name="showMessage">有惊喜！</string>
     <string name="showAllMessage">点击显示全部</string>
     <string name="showMessageAboveText">点击下方按钮有惊喜━(ﾟ∀ﾟ)━!</string>
     <string name="galleryText">可以左右滑动，不过好像有点问题的....</string>
 
-    <string name="myMessage">TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+    <string name="myMessage"> TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
         TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
         TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
         TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
@@ -31,6 +31,7 @@
         TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
         TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
         TestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTestTest
+
     </string>
 
     <string name="refuseText">就很伤心，礼物写了这么久，居然拒收(#‵′)凸，再见！ </string>

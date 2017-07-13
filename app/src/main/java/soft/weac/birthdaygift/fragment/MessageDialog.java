@@ -28,6 +28,7 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
     ScrollView scrollView_myMessage;
     public static boolean isMAXIndex = false;
     public static String  mOriginalStrTemp;
+    private boolean isActionDown = false;
 
 //    private boolean isFirstRun = true;
 //
@@ -124,9 +125,11 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
                     case MotionEvent.ACTION_DOWN:
                         //按下
 //                        Log.i("ACTION_DOWN", "true");
-                        singlyTextView.setIndexListener(null);
-                        Toast.makeText(getContext(), "已停止自动下拉，下面也许还有留言哦~不信？你可以拉下去看看", Toast.LENGTH_SHORT).show();
-
+                        if (!isActionDown) {
+                            singlyTextView.setIndexListener(null);
+                            Toast.makeText(getContext(), "已停止自动下拉，下面也许还有留言哦~不信？你可以拉下去看看", Toast.LENGTH_SHORT).show();
+                            isActionDown = true;
+                        }
 //                        if (timer != null && task != null) {
 //                            timer.cancel();
 //                            timer.purge();
