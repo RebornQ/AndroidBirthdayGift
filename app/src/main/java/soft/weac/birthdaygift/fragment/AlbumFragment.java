@@ -1,6 +1,5 @@
 package soft.weac.birthdaygift.fragment;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -19,7 +18,6 @@ import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -50,8 +48,8 @@ public class AlbumFragment extends Fragment {
     Timer timer = null;
     MyTimerTask task = null;
 
-    private static String oldMsg;
-    private static long time;
+//    private static String oldMsg;
+//    private static long time;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -84,7 +82,7 @@ public class AlbumFragment extends Fragment {
             @Override
             public void onTick(long millisUntilFinished) {
 //                Toast.makeText(getContext(), (millisUntilFinished / 1000) + "秒后再次自动播放", Toast.LENGTH_SHORT).show();
-                showToast(getContext(), (millisUntilFinished / 1000) + "秒后再次自动播放", Toast.LENGTH_SHORT);
+//                showToast(getContext(), (millisUntilFinished / 1000) + "秒后再次自动播放", Toast.LENGTH_SHORT);
 
             }
 
@@ -293,20 +291,20 @@ public class AlbumFragment extends Fragment {
         }
     }
 
-    //避免反复弹出同一Toast
-    public static void showToast(Context context, String msg, int duration) {
-        if (!msg.equals(oldMsg)) { // 当显示的内容不一样时，即断定为不是同一个Toast
-            Toast.makeText(context, msg, duration).show();
-            time = System.currentTimeMillis();
-        } else {
-            // 显示内容一样时，只有间隔时间大于10秒时才显示
-            if (System.currentTimeMillis() - time > 10000) {
-                Toast.makeText(context, msg, duration).show();
-                time = System.currentTimeMillis();
-            }
-        }
-        oldMsg = msg;
-    }
+//    //避免反复弹出同一Toast
+//    public static void showToast(Context context, String msg, int duration) {
+//        if (!msg.equals(oldMsg)) { // 当显示的内容不一样时，即断定为不是同一个Toast
+//            Toast.makeText(context, msg, duration).show();
+//            time = System.currentTimeMillis();
+//        } else {
+//            // 显示内容一样时，只有间隔时间大于10秒时才显示
+//            if (System.currentTimeMillis() - time > 10000) {
+//                Toast.makeText(context, msg, duration).show();
+//                time = System.currentTimeMillis();
+//            }
+//        }
+//        oldMsg = msg;
+//    }
 
 //    @Override
 //    public void onDestroy() {
