@@ -1,6 +1,7 @@
 package soft.weac.birthdaygift.fragment;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.util.DisplayMetrics;
@@ -29,6 +30,9 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
     public static boolean isMAXIndex = false;
     public static String  mOriginalStrTemp;
     private boolean isActionDown = false;
+
+    private static String oldMsg;
+    private static long time;
 
 //    private boolean isFirstRun = true;
 //
@@ -106,6 +110,7 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
             public void onClick(View v) {
                 singlyTextView.setmIndex(mOriginalStrTemp.length());
                 singlyTextView.setText(mOriginalStrTemp);
+                showToast(getContext(), "已停止自动下拉，下面也许还有留言哦~不信？你可以拉下去看看", Toast.LENGTH_SHORT);
             }
         });
 
@@ -127,7 +132,8 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
 //                        Log.i("ACTION_DOWN", "true");
                         if (!isActionDown) {
                             singlyTextView.setIndexListener(null);
-                            Toast.makeText(getContext(), "已停止自动下拉，下面也许还有留言哦~不信？你可以拉下去看看", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getContext(), "已停止自动下拉，下面也许还有留言哦~不信？你可以拉下去看看", Toast.LENGTH_SHORT).show();
+                            showToast(getContext(), "已停止自动下拉，下面也许还有留言哦~不信？你可以拉下去看看", Toast.LENGTH_SHORT);
                             isActionDown = true;
                         }
 //                        if (timer != null && task != null) {
@@ -166,6 +172,21 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
 //            }
 //        }
 
+    }
+
+    //避免反复弹出同一Toast
+    public static void showToast(Context context, String msg, int duration) {
+        if (!msg.equals(oldMsg)) { // 当显示的内容不一样时，即断定为不是同一个Toast
+            Toast.makeText(context, msg, duration).show();
+            time = System.currentTimeMillis();
+        } else {
+            // 显示内容一样时，只有间隔时间大于10秒时才显示
+            if (System.currentTimeMillis() - time > 10000) {
+                Toast.makeText(context, msg, duration).show();
+                time = System.currentTimeMillis();
+            }
+        }
+        oldMsg = msg;
     }
 
     @Override
