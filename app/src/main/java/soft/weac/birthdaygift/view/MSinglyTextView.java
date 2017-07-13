@@ -18,7 +18,9 @@ public class MSinglyTextView extends android.support.v7.widget.AppCompatTextView
     private int     mIndex    = 0;//-----记录将要显示的字符的位置
     private Handler mHandler;
     private final int SHOW_NEXT_CHAR = 1;
+//    private int mTextIndex = 0;
 
+    private TextIndexListener textIndexListener;
 
     public MSinglyTextView(Context context){
         super(context);
@@ -44,6 +46,7 @@ public class MSinglyTextView extends android.support.v7.widget.AppCompatTextView
     private void init() {
         mOriginalStr = getText().toString();//---保存字符串
         this.setText("");//-----先清空
+//        mTextIndex = mOriginalStr.length();
 
         mHandler = new Handler(){
             @SuppressLint("HandlerLeak")
@@ -54,6 +57,7 @@ public class MSinglyTextView extends android.support.v7.widget.AppCompatTextView
                     mIndex++;
                     if (mIndex == mOriginalStr.length()) {
                         RefuseGiftActivity.isMAXIndex = true;
+                        MSinglyTextView.this.textIndexListener.getIsMAXIndex();
                     }
                 }
 
@@ -79,7 +83,11 @@ public class MSinglyTextView extends android.support.v7.widget.AppCompatTextView
                 while (mIndex < mOriginalStr.length())
                 {
                     try {
-                        Thread.sleep(mDuration);
+                        if (mOriginalStr.charAt(mIndex) == '！' || mOriginalStr.charAt(mIndex) == '，' || mOriginalStr.charAt(mIndex) == '。') {
+                            Thread.sleep(400);
+//                            Log.i("especial char---", "I found!!");
+                        }
+                        Thread.sleep(100);
                         mHandler.sendEmptyMessage(SHOW_NEXT_CHAR);
                     }
                     catch (Exception ex){
@@ -89,5 +97,9 @@ public class MSinglyTextView extends android.support.v7.widget.AppCompatTextView
                 }
             }
         }.start();
+    }
+
+    public void setIndexListener(TextIndexListener textIndexListener) {
+        this.textIndexListener = textIndexListener;
     }
 }

@@ -2,7 +2,6 @@ package soft.weac.birthdaygift;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +13,7 @@ import android.widget.Toast;
 import soft.weac.birthdaygift.activity.ActivityManagerApplication;
 import soft.weac.birthdaygift.fragment.CountdownDialog;
 import soft.weac.birthdaygift.view.MSinglyTextView;
+import soft.weac.birthdaygift.view.TextIndexListener;
 
 /**
  * Created by Arcobaleno on 2017/7/11.
@@ -35,6 +35,13 @@ public class RefuseGiftActivity extends AppCompatActivity {
 
 //        ImageView iv_sad = (ImageView) findViewById(R.id.sad_BoBo);
         MSinglyTextView mSinglyTextView = (MSinglyTextView) findViewById(R.id.tx_sad);
+        mSinglyTextView.setIndexListener(new TextIndexListener() {
+            @Override
+            public boolean getIsMAXIndex() {
+                showDialog();
+                return true;
+            }
+        });
 
 //        DisplayMetrics dm = new DisplayMetrics();
 //        this.getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -48,33 +55,39 @@ public class RefuseGiftActivity extends AppCompatActivity {
 //        mSinglyTextView.setGravity(Gravity.CENTER);
 //        mSinglyTextView.setLayoutParams(params_1);//将设置好的布局参数应用到控件中
 
-        showDialog();
+//        showDialog();
 
     }
 
     private void showDialog() {
 
         final FragmentManager fragmentManager = getSupportFragmentManager();
-        CountDownTimer timer = new CountDownTimer(8000, 1000) {
-
-            //每隔一秒会回调一次方法onTick，然后10秒之后会回调onFinish方法
-            @Override
-            public void onTick(long millisUntilFinished) {
-                //(millisUntilFinished / 1000) = 10000/1000
-
-            }
-
-            @Override
-            public void onFinish() {
-                try {
-                    new CountdownDialog()
-                            .show(fragmentManager, "Countdown");
-                } catch (IllegalStateException e) {
-                    Log.e("IllegalStateException", e.getLocalizedMessage());
-                }
-            }
-        };
-        timer.start();
+        try {
+            new CountdownDialog()
+                    .show(fragmentManager, "Countdown");
+        } catch (IllegalStateException e) {
+            Log.e("IllegalStateException", e.getLocalizedMessage());
+        }
+//        CountDownTimer timer = new CountDownTimer(8000, 1000) {
+//
+//            //每隔一秒会回调一次方法onTick，然后10秒之后会回调onFinish方法
+//            @Override
+//            public void onTick(long millisUntilFinished) {
+//                //(millisUntilFinished / 1000) = 10000/1000
+//
+//            }
+//
+//            @Override
+//            public void onFinish() {
+//                try {
+//                    new CountdownDialog()
+//                            .show(fragmentManager, "Countdown");
+//                } catch (IllegalStateException e) {
+//                    Log.e("IllegalStateException", e.getLocalizedMessage());
+//                }
+//            }
+//        };
+//        timer.start();
     }
 
     @Override//重写物理返回键逻辑,实现按返回键退出程序

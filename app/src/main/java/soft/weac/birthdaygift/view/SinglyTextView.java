@@ -98,7 +98,7 @@ public class SinglyTextView extends android.support.v7.widget.AppCompatTextView 
                             Thread.sleep(400);
 //                            Log.i("especial char---", "I found!!");
                         }
-                        Thread.sleep(200);
+                        Thread.sleep(100);
                         mHandler.sendEmptyMessage(SHOW_NEXT_CHAR);
                     }
                     catch (Exception ex){
