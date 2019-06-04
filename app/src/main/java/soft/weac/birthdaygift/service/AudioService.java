@@ -7,7 +7,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
-import soft.weac.birthdaygift.CakeActivity;
+import soft.weac.birthdaygift.activity.CakeActivity;
 import soft.weac.birthdaygift.R;
 
 /**
@@ -18,22 +18,6 @@ public class AudioService extends Service implements MediaPlayer.OnCompletionLis
 
 
     public static MediaPlayer player;
-
-//    public static int result = 0;
-//
-//    private final String TAG = "MusicService";
-//    /**
-//     * 音频管理类
-//     */
-//    private AudioManager mAudioManager;
-//    /**
-//     * 是否播放音乐
-//     */
-//    private static boolean vIsActive=false;
-//    /**
-//     * 音乐监听器
-//     */
-//    private MyOnAudioFocusChangeListener mListener;
 
     private final IBinder binder = new AudioBinder();
     @Override
@@ -56,13 +40,6 @@ public class AudioService extends Service implements MediaPlayer.OnCompletionLis
         //我们从raw文件夹中获取一个应用自带的mp3文件
         player = MediaPlayer.create(this, R.raw.mysoul);
         player.setOnCompletionListener(this);
-//        if(!player.isPlaying()){
-//            player.start();
-//            CakeActivity.isAnim = true;
-//        }
-
-//        mAudioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
-//        mListener = new MyOnAudioFocusChangeListener();
 
         //监听音频播放完的代码，实现音频的自动循环播放
         player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -86,8 +63,6 @@ public class AudioService extends Service implements MediaPlayer.OnCompletionLis
             CakeActivity.isAnim = true;
         }
         Log.e("onStartCommand---", "success");
-
-//        setMusicControl();
 
         return START_STICKY;
     }
@@ -115,44 +90,5 @@ public class AudioService extends Service implements MediaPlayer.OnCompletionLis
             return AudioService.this;
         }
     }
-
-//    //后退播放进度
-//    public void haveFun(){
-//        if(player.isPlaying() && player.getCurrentPosition()>2500){
-//            player.seekTo(player.getCurrentPosition()-2500);
-//        }
-//    }
-
-//    /**
-//     * 内部类：音乐监听器
-//     */
-//    public class MyOnAudioFocusChangeListener implements AudioManager.OnAudioFocusChangeListener {
-//        @Override
-//        public void onAudioFocusChange(int focusChange) {
-//            // TODO Auto-generated method stub
-//            Log.i(TAG, "focusChange=" + focusChange);
-//        }
-//    }
-
-//    private void setMusicControl() {
-//        // Request audio focus for playback
-//        result = mAudioManager.requestAudioFocus(mListener,
-//                AudioManager.STREAM_MUSIC,
-//                AudioManager.AUDIOFOCUS_GAIN);
-//
-//        if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED)
-//        {
-//            Log.i(TAG, "requestAudioFocus successfully.");
-//
-//            // Start playback.
-////            player.start();
-//            CakeActivity.isAnim = true;
-//        }
-//        else
-//        {
-//            CakeActivity.isAnim = false;
-//            Log.e(TAG, "requestAudioFocus failed.");
-//        }
-//    }
 }
 

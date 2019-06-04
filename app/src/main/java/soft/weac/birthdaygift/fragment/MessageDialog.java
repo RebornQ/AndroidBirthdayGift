@@ -23,12 +23,12 @@ import soft.weac.birthdaygift.view.TextIndexListener;
  * Created by Arcobaleno on 2017/7/10.
  */
 
-public class MessageDialog extends DialogFragment implements TextIndexListener{
+public class MessageDialog extends DialogFragment implements TextIndexListener {
 
     View view;
     ScrollView scrollView_myMessage;
     public static boolean isMAXIndex = false;
-    public static String  mOriginalStrTemp;
+    public static String mOriginalStrTemp;
     private boolean isActionDown = false;
 
     private static String oldMsg;
@@ -90,7 +90,7 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
 //        singlyTextView.setLayoutParams(params);//将设置好的布局参数应用到控件中
 
         LinearLayout.LayoutParams params_1 = (LinearLayout.LayoutParams) scrollView_myMessage.getLayoutParams();
-        params_1.width= (int) (dm.widthPixels * 0.85 * 0.7);//设置当前控件布局的宽度
+        params_1.width = (int) (dm.widthPixels * 0.85 * 0.7);//设置当前控件布局的宽度
 //        params_1.height = (int) (dm.heightPixels * 0.7 * 0.6);//设置当前控件布局的高度
         params_1.topMargin = (int) (dm.heightPixels * 0.7 * 0.15);
 //        params_1.bottomMargin = (int) (dm.heightPixels * 0.7 * 0.15);
@@ -99,9 +99,9 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
         LinearLayout linearLayout1 = (LinearLayout) view.findViewById(R.id.linear1);
 
         ViewGroup.LayoutParams lp;
-        lp= linearLayout1.getLayoutParams();
-        lp.width=(int) (dm.widthPixels * 0.85 * 0.7);
-        lp.height=LinearLayout.LayoutParams.WRAP_CONTENT;
+        lp = linearLayout1.getLayoutParams();
+        lp.width = (int) (dm.widthPixels * 0.85 * 0.7);
+        lp.height = LinearLayout.LayoutParams.WRAP_CONTENT;
         linearLayout1.setLayoutParams(lp);
 
         Button bt_showAllMessage = (Button) view.findViewById(R.id.bt_showAllMessage);
@@ -126,7 +126,7 @@ public class MessageDialog extends DialogFragment implements TextIndexListener{
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 //                Log.i("onTouch", "true");
-                switch (event.getAction()){
+                switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         //按下
 //                        Log.i("ACTION_DOWN", "true");

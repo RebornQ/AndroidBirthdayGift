@@ -35,11 +35,17 @@ public class LineIterator implements Iterator<String> {
 
     // N.B. This class deliberately does not implement Iterable, see https://issues.apache.org/jira/browse/IO-181
 
-    /** The reader that is being read. */
+    /**
+     * The reader that is being read.
+     */
     private final BufferedReader bufferedReader;
-    /** The current line. */
+    /**
+     * The current line.
+     */
     private String cachedLine;
-    /** A flag indicating if the iterator has been fully read. */
+    /**
+     * A flag indicating if the iterator has been fully read.
+     */
     private boolean finished = false;
 
     /**
@@ -60,6 +66,7 @@ public class LineIterator implements Iterator<String> {
     }
 
     //-----------------------------------------------------------------------
+
     /**
      * Indicates whether the <code>Reader</code> has more lines.
      * If there is an <code>IOException</code> then {@link #close()} will
@@ -85,7 +92,7 @@ public class LineIterator implements Iterator<String> {
                         return true;
                     }
                 }
-            } catch(IOException ioe) {
+            } catch (IOException ioe) {
                 close();
                 throw new IllegalStateException(ioe);
             }
@@ -95,7 +102,8 @@ public class LineIterator implements Iterator<String> {
     /**
      * Overridable method to validate each line that is returned.
      * This implementation always returns true.
-     * @param line  the line that is to be validated
+     *
+     * @param line the line that is to be validated
      * @return true if valid, false to remove from the iterator
      */
     protected boolean isValidLine(String line) {
@@ -150,10 +158,11 @@ public class LineIterator implements Iterator<String> {
     }
 
     //-----------------------------------------------------------------------
+
     /**
      * Closes the iterator, handling null and ignoring exceptions.
      *
-     * @param iterator  the iterator to close
+     * @param iterator the iterator to close
      */
     public static void closeQuietly(LineIterator iterator) {
         if (iterator != null) {

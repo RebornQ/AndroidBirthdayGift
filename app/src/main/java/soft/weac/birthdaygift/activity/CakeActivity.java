@@ -1,4 +1,4 @@
-package soft.weac.birthdaygift;
+package soft.weac.birthdaygift.activity;
 
 import android.app.ActivityManager;
 import android.content.ComponentName;
@@ -28,7 +28,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import soft.weac.birthdaygift.activity.ActivityManagerApplication;
+import soft.weac.birthdaygift.ActivityManagerApplication;
+import soft.weac.birthdaygift.R;
 import soft.weac.birthdaygift.fragment.AlbumFragment;
 import soft.weac.birthdaygift.fragment.CakeFragment;
 import soft.weac.birthdaygift.fragment.MessageFragment;
@@ -79,7 +80,7 @@ public class CakeActivity extends AppCompatActivity{
         handler=new Handler(){
             public void handleMessage(Message msg){
                 if(msg.what==0x100){
-                    new MusicControl(mSoundSeekBar/*, musicControl, operatingAnim*/);
+                    new MusicControl(mSoundSeekBar);
                 }
             }
         };
@@ -93,20 +94,9 @@ public class CakeActivity extends AppCompatActivity{
         intent.setClass(CakeActivity.this, AudioService.class);
         startService(intent);   //可实现当Activity被销毁之后还可以播放音乐
         delay2();
-//        bindService(intent, conn, Context.BIND_AUTO_CREATE);  //当Activity被销毁后会自动解绑
-//        isBind = true;
-
-//        musicControl.setBackgroundResource(R.drawable.music_pause);
-
-//        navigation.setSelectedItemId(R.id.navigation_cake);
 
         //旋转按钮
         operatingAnim = AnimationUtils.loadAnimation(this, R.anim.rotateanim);
-//        LinearInterpolator lin = new LinearInterpolator();
-//        operatingAnim.setInterpolator(lin);
-//        if (operatingAnim != null) {
-//            musicControl.startAnimation(operatingAnim);
-//        }
 
         setupViewPager(pager);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -137,12 +127,6 @@ public class CakeActivity extends AppCompatActivity{
             public void onPageSelected(int position) {
                 navigation.getMenu().getItem(position).setChecked(true);
                 pagerPosition = position;
-//                Log.i("PagerPosition", "" + pagerPosition);
-//                if (position == 0) {
-//                    if (singlyTextView != null) {
-//                        new TextViewPresenter(singlyTextView);
-//                    }
-//                }
             }
 
             @Override
@@ -154,8 +138,6 @@ public class CakeActivity extends AppCompatActivity{
         });
         pager.setCurrentItem(1);
         ActivityManagerApplication.destroyActivity("MyLauncherActivity");
-
-//        finish();
     }
 
     private boolean isServiceRunning(String serviceName) {
@@ -193,10 +175,6 @@ public class CakeActivity extends AppCompatActivity{
         viewPager.setAdapter(adapter);
     }
 
-//    private void playAudio(Intent intent) {
-//        final MediaPlayer mp =MediaPlayer.create(this, R.raw.mysoul);
-//        mp.start();
-//    }
 
     public void setmTextView(Context context, SinglyTextView singlyTextView) {
         singlyTextView.setText(context.getResources().getText(R.string.myMessage));
@@ -204,9 +182,6 @@ public class CakeActivity extends AppCompatActivity{
         singlyTextView.start();
     }
 
-//    public void getmTextView(SinglyTextView singlyTextView) {
-//        this.singlyTextView = singlyTextView;
-//    }
 
     @Override
     protected void onDestroy() {

@@ -1,4 +1,4 @@
-package soft.weac.birthdaygift.activity;
+package soft.weac.birthdaygift;
 
 import android.app.Application;
 import android.content.Context;
@@ -10,11 +10,12 @@ import android.provider.Settings;
  * Created by shixiaoming on 16/12/6.
  */
 
-public class MyApplication extends Application{
+public class MyApplication extends Application {
 
     private static Context mContext;
 
-    @Override public void onCreate() {
+    @Override
+    public void onCreate() {
         super.onCreate();
 //        Fresco.initialize(this);//Fresco初始化
         MyApplication.mContext = getApplicationContext();

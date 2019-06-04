@@ -1,4 +1,4 @@
-package soft.weac.birthdaygift;
+package soft.weac.birthdaygift.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,8 @@ import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import soft.weac.birthdaygift.activity.ActivityManagerApplication;
+import soft.weac.birthdaygift.ActivityManagerApplication;
+import soft.weac.birthdaygift.R;
 import soft.weac.birthdaygift.fragment.CountdownDialog;
 import soft.weac.birthdaygift.view.MSinglyTextView;
 import soft.weac.birthdaygift.view.TextIndexListener;
@@ -33,7 +34,6 @@ public class RefuseGiftActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-//        ImageView iv_sad = (ImageView) findViewById(R.id.sad_BoBo);
         MSinglyTextView mSinglyTextView = (MSinglyTextView) findViewById(R.id.tx_sad);
         mSinglyTextView.setIndexListener(new TextIndexListener() {
             @Override
@@ -42,21 +42,6 @@ public class RefuseGiftActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-//        DisplayMetrics dm = new DisplayMetrics();
-//        this.getWindowManager().getDefaultDisplay().getMetrics(dm);
-//        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) iv_sad.getLayoutParams();
-//        params.width = (int) (dm.widthPixels * 0.5);//设置当前控件布局的宽度
-//        params.height = LinearLayout.LayoutParams.WRAP_CONTENT;//设置当前控件布局的高度
-//        iv_sad.setLayoutParams(params);//将设置好的布局参数应用到控件中
-//        LinearLayout.LayoutParams params_1 = (LinearLayout.LayoutParams) mSinglyTextView.getLayoutParams();
-//        params.width = (int) (dm.widthPixels * 0.5);//设置当前控件布局的宽度
-//        params.height = LinearLayout.LayoutParams.WRAP_CONTENT;//设置当前控件布局的高度
-//        mSinglyTextView.setGravity(Gravity.CENTER);
-//        mSinglyTextView.setLayoutParams(params_1);//将设置好的布局参数应用到控件中
-
-//        showDialog();
-
     }
 
     private void showDialog() {
@@ -68,26 +53,6 @@ public class RefuseGiftActivity extends AppCompatActivity {
         } catch (IllegalStateException e) {
             Log.e("IllegalStateException", e.getLocalizedMessage());
         }
-//        CountDownTimer timer = new CountDownTimer(8000, 1000) {
-//
-//            //每隔一秒会回调一次方法onTick，然后10秒之后会回调onFinish方法
-//            @Override
-//            public void onTick(long millisUntilFinished) {
-//                //(millisUntilFinished / 1000) = 10000/1000
-//
-//            }
-//
-//            @Override
-//            public void onFinish() {
-//                try {
-//                    new CountdownDialog()
-//                            .show(fragmentManager, "Countdown");
-//                } catch (IllegalStateException e) {
-//                    Log.e("IllegalStateException", e.getLocalizedMessage());
-//                }
-//            }
-//        };
-//        timer.start();
     }
 
     @Override//重写物理返回键逻辑,实现按返回键退出程序

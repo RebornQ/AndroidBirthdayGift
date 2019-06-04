@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import soft.weac.birthdaygift.CakeActivity;
+import soft.weac.birthdaygift.activity.CakeActivity;
 import soft.weac.birthdaygift.R;
 import soft.weac.birthdaygift.fragment.MessageDialog;
 import soft.weac.birthdaygift.presenter.TextViewPresenter;
@@ -16,30 +16,30 @@ import soft.weac.birthdaygift.presenter.TextViewPresenter;
 /**
  * Created by Haoye on 2016/1/15.
  */
-public class SinglyTextView extends android.support.v7.widget.AppCompatTextView implements TextIndexListener{
-    private String  mOriginalStr;//------用于保存原始字符串
-    private long    mDuration = 500;//---默认显示每个字符的时间间隔
-    private int     mIndex    = 0;//-----记录将要显示的字符的位置
+public class SinglyTextView extends android.support.v7.widget.AppCompatTextView implements TextIndexListener {
+    private String mOriginalStr;//------用于保存原始字符串
+    private long mDuration = 500;//---默认显示每个字符的时间间隔
+    private int mIndex = 0;//-----记录将要显示的字符的位置
     private Handler mHandler;
     private final int SHOW_NEXT_CHAR = 1;
 
     private TextIndexListener textIndexListener;
 
-    public SinglyTextView(Context context){
+    public SinglyTextView(Context context) {
         super(context);
 
         init();
         start();
     }
 
-    public SinglyTextView(Context context, @Nullable AttributeSet attrs){
+    public SinglyTextView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         init();
         start();
     }
 
-    public SinglyTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr){
+    public SinglyTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         init();
@@ -55,10 +55,10 @@ public class SinglyTextView extends android.support.v7.widget.AppCompatTextView 
             this.setText("");//-----先清空
         }
 
-        mHandler = new Handler(){
+        mHandler = new Handler() {
             @SuppressLint("HandlerLeak")
-            public  void handleMessage(Message msg){
-                if (msg.what == SHOW_NEXT_CHAR && mIndex < mOriginalStr.length()){
+            public void handleMessage(Message msg) {
+                if (msg.what == SHOW_NEXT_CHAR && mIndex < mOriginalStr.length()) {
                     if (CakeActivity.pagerPosition == 0) {
                         if (!MessageDialog.isMAXIndex) {
                             SinglyTextView.this.setText(SinglyTextView.this.getText().toString()
@@ -86,6 +86,7 @@ public class SinglyTextView extends android.support.v7.widget.AppCompatTextView 
 
     /**
      * 设置显示每个字符的时间间隔
+     *
      * @param duration
      */
     public void setDuration(long duration) {
@@ -96,11 +97,9 @@ public class SinglyTextView extends android.support.v7.widget.AppCompatTextView 
      * 启动新线程
      */
     public void start() {
-         new Thread(){
-            public void run()
-            {
-                while (mIndex < mOriginalStr.length())
-                {
+        new Thread() {
+            public void run() {
+                while (mIndex < mOriginalStr.length()) {
                     try {
                         if (mOriginalStr.charAt(mIndex) == '！' || mOriginalStr.charAt(mIndex) == '，' || mOriginalStr.charAt(mIndex) == '。') {
                             Thread.sleep(400);
@@ -108,8 +107,7 @@ public class SinglyTextView extends android.support.v7.widget.AppCompatTextView 
                         }
                         Thread.sleep(100);
                         mHandler.sendEmptyMessage(SHOW_NEXT_CHAR);
-                    }
-                    catch (Exception ex){
+                    } catch (Exception ex) {
                         ex.printStackTrace();
                     }
 
@@ -120,6 +118,7 @@ public class SinglyTextView extends android.support.v7.widget.AppCompatTextView 
 
     /**
      * 设置当前已读取的文本长度
+     *
      * @param index
      */
     public void setmIndex(int index) {

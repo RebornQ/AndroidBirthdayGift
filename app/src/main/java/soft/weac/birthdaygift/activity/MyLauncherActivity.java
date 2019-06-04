@@ -1,4 +1,4 @@
-package soft.weac.birthdaygift;
+package soft.weac.birthdaygift.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,7 +12,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
-import soft.weac.birthdaygift.activity.ActivityManagerApplication;
+import soft.weac.birthdaygift.ActivityManagerApplication;
+import soft.weac.birthdaygift.R;
 import soft.weac.birthdaygift.fragment.AcceptGiftDialog;
 
 /**
@@ -94,22 +95,4 @@ public class MyLauncherActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        Toast.makeText(this, "I am killed", Toast.LENGTH_SHORT).show();
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        Toast.makeText(this, "I am paused", Toast.LENGTH_SHORT).show();
-//    }
-//
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        Toast.makeText(this, "I am stopped", Toast.LENGTH_SHORT).show();
-//    }
 }

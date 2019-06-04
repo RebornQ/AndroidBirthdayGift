@@ -35,18 +35,30 @@ import java.util.List;
  */
 public class ByteArrayOutputStream extends OutputStream {
 
-    /** A singleton empty byte array. */
+    /**
+     * A singleton empty byte array.
+     */
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
-    /** The list of buffers, which grows and never reduces. */
+    /**
+     * The list of buffers, which grows and never reduces.
+     */
     private final List<byte[]> buffers = new ArrayList<byte[]>();
-    /** The index of the current buffer. */
+    /**
+     * The index of the current buffer.
+     */
     private int currentBufferIndex;
-    /** The total count of bytes in all the filled buffers. */
+    /**
+     * The total count of bytes in all the filled buffers.
+     */
     private int filledBufferSum;
-    /** The current buffer. */
+    /**
+     * The current buffer.
+     */
     private byte[] currentBuffer;
-    /** The total count of bytes written. */
+    /**
+     * The total count of bytes written.
+     */
     private int count;
 
     /**
@@ -61,7 +73,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * Creates a new byte array output stream, with a buffer capacity of
      * the specified size, in bytes.
      *
-     * @param size  the initial size
+     * @param size the initial size
      * @throws IllegalArgumentException if size is negative
      */
     public ByteArrayOutputStream(int size) {
@@ -78,7 +90,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * Makes a new buffer available either by allocating
      * a new one or re-cycling an existing one.
      *
-     * @param newcount  the size of the buffer if one is created
+     * @param newcount the size of the buffer if one is created
      */
     private void needNewBuffer(int newcount) {
         if (currentBufferIndex < buffers.size() - 1) {
@@ -108,7 +120,8 @@ public class ByteArrayOutputStream extends OutputStream {
 
     /**
      * Write the bytes to byte array.
-     * @param b the bytes to write
+     *
+     * @param b   the bytes to write
      * @param off The start offset
      * @param len The number of bytes to write
      */
@@ -142,6 +155,7 @@ public class ByteArrayOutputStream extends OutputStream {
 
     /**
      * Write a byte to byte array.
+     *
      * @param b the byte to write
      */
     @Override
@@ -162,7 +176,7 @@ public class ByteArrayOutputStream extends OutputStream {
      *
      * @param in the input stream to read from
      * @return total number of bytes read from the input stream
-     *         (and written to this stream)
+     * (and written to this stream)
      * @throws IOException if an I/O error occurs while reading the input stream
      * @since 1.4
      */
@@ -185,6 +199,7 @@ public class ByteArrayOutputStream extends OutputStream {
 
     /**
      * Return the current size of the byte array.
+     *
      * @return the current size of the byte array
      */
     public synchronized int size() {
@@ -197,7 +212,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * generating an <tt>IOException</tt>.
      *
      * @throws IOException never (this method should not declare this exception
-     * but it has to now due to backwards compatability)
+     *                     but it has to now due to backwards compatability)
      */
     @Override
     public void close() throws IOException {
@@ -218,7 +233,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * Writes the entire contents of this byte stream to the
      * specified output stream.
      *
-     * @param out  the output stream to write to
+     * @param out the output stream to write to
      * @throws IOException if an I/O error occurs, such as if the stream is closed
      * @see java.io.ByteArrayOutputStream#writeTo(OutputStream)
      */
@@ -317,6 +332,7 @@ public class ByteArrayOutputStream extends OutputStream {
 
     /**
      * Gets the curent contents of this byte stream as a string.
+     *
      * @return the contents of the byte array as a String
      * @see java.io.ByteArrayOutputStream#toString()
      */
@@ -329,7 +345,7 @@ public class ByteArrayOutputStream extends OutputStream {
      * Gets the curent contents of this byte stream as a string
      * using the specified encoding.
      *
-     * @param enc  the name of the character encoding
+     * @param enc the name of the character encoding
      * @return the string converted from the byte array
      * @throws UnsupportedEncodingException if the encoding is not supported
      * @see java.io.ByteArrayOutputStream#toString(String)

@@ -1,41 +1,31 @@
 package soft.weac.birthdaygift.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 
 import soft.weac.birthdaygift.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link CakeFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link CakeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CakeFragment extends Fragment {
     private View view;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fragment_cake, container, false);
         refresh();
-//        Log.e("onCreateView--", "I am onCreateView!!!");
         return view;
     }
     //刷新Fragment的内容
     public void refresh() {
-//        Log.e("refresh--", "I am refresh!!!");
         View linearLayout = view.findViewById(R.id.cakeFragment);
         linearLayout.setVisibility(View.VISIBLE);
 

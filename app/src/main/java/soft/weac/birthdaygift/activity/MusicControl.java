@@ -1,4 +1,4 @@
-package soft.weac.birthdaygift;
+package soft.weac.birthdaygift.activity;
 
 import android.media.MediaPlayer;
 import android.util.Log;
@@ -11,9 +11,9 @@ import java.util.TimerTask;
 
 import soft.weac.birthdaygift.service.AudioService;
 
-import static soft.weac.birthdaygift.CakeActivity.isAnim;
-import static soft.weac.birthdaygift.CakeActivity.musicControl;
-import static soft.weac.birthdaygift.CakeActivity.operatingAnim;
+import static soft.weac.birthdaygift.activity.CakeActivity.isAnim;
+import static soft.weac.birthdaygift.activity.CakeActivity.musicControl;
+import static soft.weac.birthdaygift.activity.CakeActivity.operatingAnim;
 
 /**
  * Created by Arcobaleno on 2017/6/9.
@@ -29,14 +29,10 @@ class MusicControl {
     private boolean isPlaying;
     private boolean isSeeking;
 
-    public MusicControl() {
+    public MusicControl() {}
 
-    }
-
-    MusicControl(SeekBar soundSeekBar/*, ImageButton musicControl, Animation operatingAnim*/) {
+    MusicControl(SeekBar soundSeekBar) {
         mSoundSeekBar = soundSeekBar;
-//        mMusicControl = musicControl;
-//        mOperatingAnim = operatingAnim;
         init();
         seekBarControl();
         animControl();
@@ -133,7 +129,6 @@ class MusicControl {
                 Log.i("Click", "musicControl");
                 if (isAnim) {
                     musicControl.clearAnimation();
-//                    AudioService.player.pause();
                     onPause(AudioService.player);
                     mediaPlayer.release();
                     isAnim = false;

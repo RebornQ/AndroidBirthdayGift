@@ -13,9 +13,9 @@ import android.widget.ImageView;
 
 import java.lang.ref.SoftReference;
 
-import soft.weac.birthdaygift.CakeActivity;
+import soft.weac.birthdaygift.activity.CakeActivity;
 import soft.weac.birthdaygift.R;
-import soft.weac.birthdaygift.activity.MyApplication;
+import soft.weac.birthdaygift.MyApplication;
 import soft.weac.birthdaygift.interfaces.OnAnimationListener;
 
 /**
@@ -25,7 +25,7 @@ import soft.weac.birthdaygift.interfaces.OnAnimationListener;
 
 public class AnimationsContainer {
 
-//    private boolean playState;
+    //    private boolean playState;
     public int FPS = 30;  // 每秒播放帧数，fps = 1/t，t-动画两帧时间间隔58
     private int resId = R.array.loading_anim; //图片资源
     private Context mContext = MyApplication.getAppContext();
@@ -35,8 +35,9 @@ public class AnimationsContainer {
     private ImageView bt_gift;
 //    private long playTimeSum;
 
-    public AnimationsContainer(){
+    public AnimationsContainer() {
     }
+
     //获取单例
     public static AnimationsContainer getInstance(int resId, int fps) {
         if (mInstance == null)
@@ -44,9 +45,10 @@ public class AnimationsContainer {
         return mInstance;
     }
 
-    public void setResId(int resId){
+    public void setResId(int resId) {
         this.resId = resId;
     }
+
     // 从xml中读取资源ID数组
     private int[] mProgressAnimFrames = getData(resId);
 
@@ -55,7 +57,7 @@ public class AnimationsContainer {
      * @return progress dialog animation
      */
     public FramesSequenceAnimation createProgressDialogAnim(Activity activity, ImageView imageView) {
-        return new FramesSequenceAnimation(activity ,imageView, mProgressAnimFrames, FPS);
+        return new FramesSequenceAnimation(activity, imageView, mProgressAnimFrames, FPS);
     }
 
 
@@ -106,11 +108,12 @@ public class AnimationsContainer {
                 mBitmapOptions.inSampleSize = 1;//缩放比例
             }
         }
+
         //循环读取下一帧
         private int getNext() {
             mIndex++;
-            if (mIndex >= mFrames.length){
-                mIndex = mFrames.length-1;//120
+            if (mIndex >= mFrames.length) {
+                mIndex = mFrames.length - 1;//120
                 stop();
             }
             return mFrames[mIndex];
@@ -209,9 +212,10 @@ public class AnimationsContainer {
 
         /**
          * 设置停止播放监听
+         *
          * @param listener
          */
-        public void setOnAnimStopListener(OnAnimationStoppedListener listener){
+        public void setOnAnimStopListener(OnAnimationStoppedListener listener) {
             this.mOnAnimationStoppedListener = listener;
         }
 
@@ -220,7 +224,7 @@ public class AnimationsContainer {
         }
 
         public long getPlayTimeSum() {
-            long playTimeSum = (2000/FPS) * 86;
+            long playTimeSum = (2000 / FPS) * 86;
             return playTimeSum;
         }
 
@@ -231,16 +235,17 @@ public class AnimationsContainer {
 
     /**
      * 从xml中读取帧数组
+     *
      * @param resId
      * @return
      */
-    private int[] getData(int resId){
+    private int[] getData(int resId) {
         TypedArray array = mContext.getResources().obtainTypedArray(resId);
 
         int len = array.length();
         int[] intArray = new int[array.length()];
 
-        for(int i = 0; i < len; i++){
+        for (int i = 0; i < len; i++) {
             intArray[i] = array.getResourceId(i, 0);
         }
         array.recycle();
@@ -250,7 +255,7 @@ public class AnimationsContainer {
     /**
      * 停止播放监听
      */
-    public interface OnAnimationStoppedListener{
+    public interface OnAnimationStoppedListener {
         void AnimationStopped();
     }
 }

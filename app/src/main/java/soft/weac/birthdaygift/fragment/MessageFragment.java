@@ -1,6 +1,7 @@
 package soft.weac.birthdaygift.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -22,22 +23,16 @@ public class MessageFragment extends Fragment{
     private View view;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
         view = inflater.inflate(R.layout.fragment_message, container, false);
         refresh();
-//        Log.e("onCreateView--", "I am onCreateView!!!");
         return view;
     }
     //刷新Fragment的内容
     public void refresh() {
-//        Log.e("refresh--", "I am refresh!!!");
         View linearLayout = view.findViewById(R.id.messageFragment);
         linearLayout.setVisibility(View.VISIBLE);
-
-//        SinglyTextView singlyTextView = (SinglyTextView) view.findViewById(R.id.myMessage);
-//        singlyTextView.setText(getContext().getResources().getText(R.string.myMessage));
-//        ((CakeActivity)getActivity()).getmTextView(singlyTextView);
 
         MarqueeTextView marqueeTextView = (MarqueeTextView) view.findViewById(R.id.messageAbove);
         DisplayMetrics dm = new DisplayMetrics();

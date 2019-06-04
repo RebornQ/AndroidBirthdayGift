@@ -3,23 +3,23 @@
     package="soft.weac.birthdaygift">
 
     <application
-        android:name="soft.weac.birthdaygift.activity.MyApplication"
+        android:name="soft.weac.birthdaygift.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon_cake"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_cake_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CakeActivity"
+        <activity android:name=".activity.CakeActivity"
             android:theme="@style/NoActionBar"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".RefuseGiftActivity"
+        <activity android:name=".activity.RefuseGiftActivity"
             android:theme="@style/NoActionBar"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".MyLauncherActivity"
+            android:name=".activity.MyLauncherActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>

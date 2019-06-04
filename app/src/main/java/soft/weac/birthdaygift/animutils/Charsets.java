@@ -5,7 +5,7 @@ import java.nio.charset.UnsupportedCharsetException;
 
 /**
  * Charsets required of every implementation of the Java platform.
- *
+ * <p>
  * From the Java documentation <a href="http://docs.oracle.com/javase/6/docs/api/java/nio/charset/Charset.html">
  * Standard charsets</a>:
  * <p>
@@ -30,9 +30,9 @@ import java.nio.charset.UnsupportedCharsetException;
  * accepted on input, big-endian used on output.)</li>
  * </ul>
  *
+ * @version $Id: Charsets.java 1311751 2012-04-10 14:26:21Z ggregory $
  * @see <a href="http://docs.oracle.com/javase/6/docs/api/java/nio/charset/Charset.html">Standard charsets</a>
  * @since 2.3
- * @version $Id: Charsets.java 1311751 2012-04-10 14:26:21Z ggregory $
  */
 public class Charsets {
     //
@@ -43,8 +43,7 @@ public class Charsets {
     /**
      * Returns the given Charset or the default Charset if the given Charset is null.
      *
-     * @param charset
-     *            A charset or null.
+     * @param charset A charset or null.
      * @return the given Charset or the default Charset if the given Charset is null
      */
     public static Charset toCharset(Charset charset) {
@@ -54,11 +53,9 @@ public class Charsets {
     /**
      * Returns a Charset for the named charset. If the name is null, return the default Charset.
      *
-     * @param charset
-     *            The name of the requested charset, may be null.
+     * @param charset The name of the requested charset, may be null.
      * @return a Charset for the named charset
-     * @throws UnsupportedCharsetException
-     *             If the named charset is unavailable
+     * @throws UnsupportedCharsetException If the named charset is unavailable
      */
     public static Charset toCharset(String charset) {
         return charset == null ? Charset.defaultCharset() : Charset.forName(charset);

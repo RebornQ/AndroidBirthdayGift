@@ -53,12 +53,13 @@ public class AlbumFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState){
+                             Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_album, container, false);
         refresh();
 //        Log.e("onCreateView--", "I am onCreateView!!!");
         return view;
     }
+
     //刷新Fragment的内容
     public void refresh() {
 //        Log.e("refresh--", "I am refresh!!!");
@@ -113,7 +114,7 @@ public class AlbumFragment extends Fragment {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 //                Log.i("onTouch", "true");
-                switch (event.getAction()){
+                switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         //按下
 //                        Log.i("ACTION_DOWN", "true");
@@ -172,7 +173,6 @@ public class AlbumFragment extends Fragment {
                 task = null;//清空Task
             }
         }
-
 
 
     }
@@ -244,7 +244,7 @@ public class AlbumFragment extends Fragment {
                     tx_galleryTips.setText(getContext().getText(R.string.AlbumText));
                 } else if (position == 1) {
                     tx_galleryTips.setText(getContext().getText(R.string.AlbumText));
-                }else if (position == 2) {
+                } else if (position == 2) {
                     tx_galleryTips.setText(getContext().getText(R.string.AlbumText));
                 } else if (position == 3) {
                     tx_galleryTips.setText(getContext().getText(R.string.AlbumText));
