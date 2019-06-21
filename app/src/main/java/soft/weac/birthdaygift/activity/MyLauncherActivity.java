@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
-import soft.weac.birthdaygift.ActivityManagerApplication;
+import soft.weac.birthdaygift.MyApplication;
 import soft.weac.birthdaygift.R;
 import soft.weac.birthdaygift.fragment.AcceptGiftDialog;
 
@@ -32,7 +32,7 @@ public class MyLauncherActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        ActivityManagerApplication.addDestroyActivity(MyLauncherActivity.this, "MyLauncherActivity");
+        MyApplication.addDestroyActivity(MyLauncherActivity.this, "MyLauncherActivity");
 
         final FragmentManager fragmentManager = getSupportFragmentManager();
         Button bt_yes = (Button) findViewById(R.id.bt_yes);

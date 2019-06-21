@@ -10,7 +10,7 @@ import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import soft.weac.birthdaygift.ActivityManagerApplication;
+import soft.weac.birthdaygift.MyApplication;
 import soft.weac.birthdaygift.R;
 import soft.weac.birthdaygift.fragment.CountdownDialog;
 import soft.weac.birthdaygift.view.MSinglyTextView;
@@ -30,7 +30,7 @@ public class RefuseGiftActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_refuse);
 
-        ActivityManagerApplication.addDestroyActivity(RefuseGiftActivity.this, "RefuseGiftActivity");
+        MyApplication.addDestroyActivity(RefuseGiftActivity.this, "RefuseGiftActivity");
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 

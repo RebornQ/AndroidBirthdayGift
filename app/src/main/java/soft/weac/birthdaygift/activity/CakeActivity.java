@@ -28,7 +28,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import soft.weac.birthdaygift.ActivityManagerApplication;
+import soft.weac.birthdaygift.MyApplication;
 import soft.weac.birthdaygift.R;
 import soft.weac.birthdaygift.fragment.AlbumFragment;
 import soft.weac.birthdaygift.fragment.CakeFragment;
@@ -37,11 +37,11 @@ import soft.weac.birthdaygift.service.AudioService;
 import soft.weac.birthdaygift.view.SinglyTextView;
 
 
-public class CakeActivity extends AppCompatActivity{
+public class CakeActivity extends AppCompatActivity {
 
     static AudioService audioService;
     Intent intent;
-//    static boolean isBind = false;
+    //    static boolean isBind = false;
     public static ImageButton musicControl;
     public static Animation operatingAnim;
     private SeekBar mSoundSeekBar = null;
@@ -66,7 +66,7 @@ public class CakeActivity extends AppCompatActivity{
         @Override
         public void onServiceConnected(ComponentName name, IBinder binder) {
             //这里我们实例化audioService,通过binder来实现
-            audioService = ((AudioService.AudioBinder)binder).getService();
+            audioService = ((AudioService.AudioBinder) binder).getService();
         }
     };
 
@@ -77,18 +77,18 @@ public class CakeActivity extends AppCompatActivity{
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        handler=new Handler(){
-            public void handleMessage(Message msg){
-                if(msg.what==0x100){
+        handler = new Handler() {
+            public void handleMessage(Message msg) {
+                if (msg.what == 0x100) {
                     new MusicControl(mSoundSeekBar);
                 }
             }
         };
 
-        final ViewPager pager=(ViewPager)findViewById(R.id.content);
+        final ViewPager pager = (ViewPager) findViewById(R.id.content);
         final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         musicControl = (ImageButton) findViewById(R.id.musicControl);
-        mSoundSeekBar=(SeekBar) findViewById(R.id.SoundSeekBar);
+        mSoundSeekBar = (SeekBar) findViewById(R.id.SoundSeekBar);
 
         intent = new Intent();
         intent.setClass(CakeActivity.this, AudioService.class);
@@ -137,7 +137,7 @@ public class CakeActivity extends AppCompatActivity{
 
         });
         pager.setCurrentItem(1);
-        ActivityManagerApplication.destroyActivity("MyLauncherActivity");
+        MyApplication.destroyActivity("MyLauncherActivity");
     }
 
     private boolean isServiceRunning(String serviceName) {
@@ -150,7 +150,7 @@ public class CakeActivity extends AppCompatActivity{
         return false;
     }
 
-    private void delay2(){
+    private void delay2() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -159,8 +159,8 @@ public class CakeActivity extends AppCompatActivity{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Message msg=new Message();
-                msg.what=0x100;
+                Message msg = new Message();
+                msg.what = 0x100;
                 handler.sendMessage(msg);
             }
         }).start();

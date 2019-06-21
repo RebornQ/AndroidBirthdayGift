@@ -23,13 +23,14 @@ class MusicControl {
 
     private MediaPlayer mediaPlayer = new MediaPlayer();
     private SeekBar mSoundSeekBar = null;
-//    ImageButton mMusicControl;
+    //    ImageButton mMusicControl;
 //    Animation mOperatingAnim;
     private int position = 0;
     private boolean isPlaying;
     private boolean isSeeking;
 
-    public MusicControl() {}
+    public MusicControl() {
+    }
 
     MusicControl(SeekBar soundSeekBar) {
         mSoundSeekBar = soundSeekBar;
@@ -41,15 +42,15 @@ class MusicControl {
 
     private void seekBarControl() {
         mSoundSeekBar.setMax(AudioService.player.getDuration());
-        isSeeking=false;
+        isSeeking = false;
         final Timer mTimer = new Timer();
         final TimerTask mTimerTask = new TimerTask() {
             @Override
             public void run() {
-                if(!isPlaying) {
+                if (!isPlaying) {
                     return;
                 }
-                if(isSeeking){
+                if (isSeeking) {
                     return;
                 }
                 try {
@@ -71,20 +72,20 @@ class MusicControl {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                isSeeking=true;
-                Log.e("TrackTouch","StartTrackTouch");
+                isSeeking = true;
+                Log.e("TrackTouch", "StartTrackTouch");
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 AudioService.player.pause();
-                position=seekBar.getProgress();
+                position = seekBar.getProgress();
                 AudioService.player.seekTo(position);
                 AudioService.player.start();
                 musicControl.startAnimation(operatingAnim);
-                isSeeking=false;
+                isSeeking = false;
                 isPlaying = true;
-                Log.e("TrackTouch","StopTrackTouch");
+                Log.e("TrackTouch", "StopTrackTouch");
             }
         });
     }
@@ -100,7 +101,7 @@ class MusicControl {
 
     private void init() {
         if (AudioService.player.isPlaying()) {
-            position=mSoundSeekBar.getProgress();
+            position = mSoundSeekBar.getProgress();
             //AudioService.player.seekTo(position); //此处不能用！！！否则会导致切换Fragment的时候重头开始播放音乐！！！（因为设计是）
 //            Log.e("init--", "init!!!");
             isPlaying = true;
@@ -108,14 +109,14 @@ class MusicControl {
     }
 
     private void onPause(MediaPlayer mediaPlayer) {//如果突然电话到来，停止播放音乐
-        if(mediaPlayer.isPlaying()){
+        if (mediaPlayer.isPlaying()) {
             position = mediaPlayer.getCurrentPosition();//保存当前播放点
             mediaPlayer.pause();
         }
     }
 
     private void onResume(MediaPlayer mediaPlayer) {
-        if(position>0) {//如果电话结束，继续播放音乐
+        if (position > 0) {//如果电话结束，继续播放音乐
             mediaPlayer.start();
             mediaPlayer.seekTo(position);
             position = 0;
