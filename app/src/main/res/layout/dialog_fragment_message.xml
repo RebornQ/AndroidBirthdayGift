@@ -12,7 +12,7 @@
         android:id="@+id/scrollView_myMessage"
         android:layout_weight="1">
 
-        <soft.weac.birthdaygift.view.SinglyTextView
+        <com.mallotec.birthdaygift.view.SinglyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/myMessage"

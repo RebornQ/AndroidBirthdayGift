@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="soft.weac.birthdaygift.fragment.CakeFragment"
+    tools:context="com.mallotec.birthdaygift.fragment.CakeFragment"
     android:id="@+id/cakeFragment"
     android:background="#2a0002"
     >

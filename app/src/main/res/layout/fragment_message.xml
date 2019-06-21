@@ -6,7 +6,7 @@
     android:background="@mipmap/birth_car"
     android:id="@+id/messageFragment">
 
-    <soft.weac.birthdaygift.view.MarqueeTextView
+    <com.mallotec.birthdaygift.view.MarqueeTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/messageAbove"

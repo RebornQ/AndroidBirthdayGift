@@ -35,12 +35,12 @@
         android:text="@string/galleryText"
         android:layout_gravity="center"/>
 
-    <soft.weac.birthdaygift.view.MyGallery
+    <com.mallotec.birthdaygift.view.MyGallery
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/mygallery"
         android:layout_weight="1">
-    </soft.weac.birthdaygift.view.MyGallery>
+    </com.mallotec.birthdaygift.view.MyGallery>
 
     <TextView
         android:layout_width="match_parent"

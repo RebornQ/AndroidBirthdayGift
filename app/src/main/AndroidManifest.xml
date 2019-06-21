@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="soft.weac.birthdaygift">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mallotec.birthdaygift">
 
     <application
-        android:name="soft.weac.birthdaygift.MyApplication"
+        android:name="com.mallotec.birthdaygift.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon_cake"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/icon_cake_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.CakeActivity"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.mallotec.birthdaygift.activity.CakeActivity"
             android:theme="@style/NoActionBar"
             android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.RefuseGiftActivity"
+        <activity android:name="com.mallotec.birthdaygift.activity.RefuseGiftActivity"
             android:theme="@style/NoActionBar"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".activity.MyLauncherActivity"
+            android:name="com.mallotec.birthdaygift.activity.MyLauncherActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -29,7 +31,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name="soft.weac.birthdaygift.service.AudioService" />
+            android:name="com.mallotec.birthdaygift.service.AudioService" />
     </application>
 
 </manifest>

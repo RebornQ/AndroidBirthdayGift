@@ -10,7 +10,7 @@
         android:src="@mipmap/sad"
         android:id="@+id/sad_BoBo"/>
 
-    <soft.weac.birthdaygift.view.MSinglyTextView
+    <com.mallotec.birthdaygift.view.MSinglyTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/refuseText"
